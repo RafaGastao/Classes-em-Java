@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import javax.swing.JOptionPane;
+import controle.CategoriaControle;
 
 /**
  *
@@ -52,6 +54,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         categoriaCmb.addActionListener(this::categoriaCmbActionPerformed);
 
         jButton1.setText("Adicionar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,6 +105,22 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void categoriaCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaCmbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_categoriaCmbActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         String idTexto = jTextField1.getText();
+         String nome = nomeprodTxt.getText();
+
+        if(idTexto.isEmpty() || nome.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+        return;
+    }
+
+    int id = Integer.parseInt(idTexto);
+
+    CategoriaControle.inserirCategoria(id, nome);
+
+    JOptionPane.showMessageDialog(null, "Dados gravados com sucesso");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

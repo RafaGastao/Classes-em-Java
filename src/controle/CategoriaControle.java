@@ -22,4 +22,14 @@ public class CategoriaControle {
 
         return nomes;
     }
+
+    public static void inserirCategoria(int id, String nome){
+
+        Categoria cat = new Categoria(id, nome);
+
+        CategoriaDao dao = new CategoriaDao();
+
+        dao.inserir(cat);
+
+    }
 }
